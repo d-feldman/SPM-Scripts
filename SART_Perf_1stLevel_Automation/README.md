@@ -1,4 +1,4 @@
-#Automating 1st level fMRI model for sustained attention response task
+#Automating 1st level fMRI model for sustained attention response task performance
 
 #Python script organizes onset times, exported from EPrime, into individual text files nested in folder structure
 
