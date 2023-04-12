@@ -69,6 +69,15 @@ for i = 1:sessions
     matlabbatch{1}.spm.stats.fmri_spec.sess(i).regress = struct('name', {}, 'val', {});
     matlabbatch{1}.spm.stats.fmri_spec.sess(i).multi_reg = cellstr(fullfile('/thalia/data/MEND2/MICA20/ImagingData/SubjectsDerived',strcat(currentSubject,'_01'),strcat('func/PGNGS/run_0',string(i),'/rp_tr_dc_run_0',string(i),'.txt')));
     matlabbatch{1}.spm.stats.fmri_spec.sess(i).hpf = 128; 
+    
+    %Add explicit mask
+    matlabbatch{1}.spm.stats.fmri_spec.fact = struct('name', {}, 'levels', {});
+    matlabbatch{1}.spm.stats.fmri_spec.bases.hrf.derivs = [0 0];
+    matlabbatch{1}.spm.stats.fmri_spec.volt = 1;
+    matlabbatch{1}.spm.stats.fmri_spec.global = 'None';
+    matlabbatch{1}.spm.stats.fmri_spec.mthresh = 0.8;
+    matlabbatch{1}.spm.stats.fmri_spec.mask = {'/thalia/data/MEND2/MICA20/FirstLevel/PGNGS/MNI152_T1_2mm_brain_mask.nii,1'};
+    matlabbatch{1}.spm.stats.fmri_spec.cvi = 'AR(1)';
 end
 
 %Estimate SPM.mat
