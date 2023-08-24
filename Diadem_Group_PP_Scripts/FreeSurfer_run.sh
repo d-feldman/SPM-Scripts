@@ -25,7 +25,7 @@ function function1() {
     for SUBJ in ${SUBJECTLIST} 
     do
     	cd /thalia/data/MickeyLab/DDEP22/ImagingData/SubjectsDerived/group_model/${SUBJ}/anat/
-    	recon-all -s ${SUBJ} -i mprage_wide_1.nii -sd /thalia/data/MickeyLab/DDEP22/ImagingData/SubjectsDerived/group_model/${SUBJ}/anat/ -all 
+    	recon-all -s ${SUBJ} -i mprage_wide_1.nii -sd /thalia/data/MickeyLab/DDEP22/ImagingData/SubjectsDerived/group_model/${SUBJ}/anat/ -all > /dev/null 2>&1 </dev/null & disown -a 
     done
   	if [ $? -eq 0 ]; then 
 		echo "Freesurfer completed"
